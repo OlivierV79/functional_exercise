@@ -13,13 +13,16 @@ export function filterArrayWithCallback(array, filterFunc, callback) {
 }
 
 export async function asyncAdd(a, b) {
-  setTimeout(() => {
-
-  }, 1000);
-}
-
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      var sum = a + b;
+      resolve(sum);
+  }, 1000)});
+};
+ 
 export async function filterArrayAsync(array, filterFunc) {
-  setTimeout(() => {
-
-  }, 1000);
-}
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(array.filter(filterFunc));
+    }, 1000)});
+  };
